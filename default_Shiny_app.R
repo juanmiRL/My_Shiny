@@ -29,13 +29,16 @@ ui <- fluidPage(
            includeMarkdown("references.rmd")
        )),
    h3("Plots"),
-   selectInput("select", label = h3("Plot by type of alimentation"), 
-               choices = character(0),
-               selected = 1),
-   
-   
-   plotOutput(outputId = "plot")
-   
+   sidebarLayout(
+     sidebarPanel(
+       selectInput("select", label = h3("Plot by type of alimentation"), 
+                   choices = character(0),
+                   selected = 1)
+     ),
+     mainPanel(
+       plotOutput(outputId = "plot")
+     )
+   )
    
 )
 
